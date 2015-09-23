@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>First AngularJS app!</title>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.0/angular-material.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    </head>
+    <body layout="column" ng-app="testApp">
+        <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">My AngularJS App</h2>
+        </div>
+        </md-toolbar>
+        <md-content layout-padding style="height: 600px;padding: 24px;" ng-controller="mainCtrl">
+        <form layout="column" layout-align="space-between center" ng-submit="post()">
+            <md-input-container>
+            <label>Name</label>
+            <input required type="text" placeholder="John Doe" ng-model="newPost.created_by"/>
+            </md-input-container>
+            <md-input-container>
+            <label>Message</label>
+            <textarea required cols="30" rows="10" placeholder="Your message" ng-model="newPost.text"></textarea>
+            </md-input-container>
+            <md-button type="submit" value="Submit" class="md-raised">Send!</md-button>
+        </form>
+        <div id="post-stream">
+            <h4>Feed</h4>
+            <div class="post" ng-repeat="post in posts | orderBy:'created_at':true" ng-class-odd="odd" ng-class-even="even">
+                <p>{{post.created_by}} says {{post.text}} at {{post.created_at | date: "h:mma 'on' MMM d, y"}}</p>
+            </div>
+        </div>
+        </md-content>
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+        <script src="app.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.0/angular-material.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sign up!</title>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.0/angular-material.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    </head>
+    <body layout="column" ng-app="testApp">
+        <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Sign up!</h2>
+        </div>
+        </md-toolbar>
+        <md-content layout-padding style="height: 600px;padding: 24px;" ng-controller="authCtrl">
+        <form layout="column" layout-align="space-between center" ng-submit="signup()">
+            <md-input-container>
+            <label>Username</label>
+            <input required type="text" placeholder="JohnDoe" ng-model="user.username"/>
+            </md-input-container>
+            <md-input-container>
+            <label>Password</label>
+            <input required type="password" placeholder="Your password" ng-model="user.password"/>
+            </md-input-container>
+            <md-button type="submit" value="Submit" class="md-raised">
+            Register
+            <md-tooltip>
+            {{error_message}}
+            </md-tooltip>
+            </md-button>
+        </form>
+        </md-content>
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+        <script src="app.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.0/angular-material.min.js"></script>
+    </body>
+</html>
