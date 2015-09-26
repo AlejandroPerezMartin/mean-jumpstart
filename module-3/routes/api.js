@@ -10,6 +10,9 @@ router.use(function (req, res, next) {
         // user not authenticated, redirect to login page
         return res.redirect('/#login')
     }
+
+    // user authenticated, continue
+    return next();
 });
 
 router.route('/posts')
