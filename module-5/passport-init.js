@@ -1,9 +1,7 @@
-var LocalStrategy = require('passport-local')
-    .Strategy;
+var LocalStrategy = require('passport-local').Strategy;
 var bCrypt = require('bcrypt-nodejs');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
-var Post = mongoose.model('Post');
 
 module.exports = function (passport) {
 
@@ -69,7 +67,7 @@ module.exports = function (passport) {
             }
 
             if (user) {
-                return done('username already taken');
+                return done(null, false);
             }
 
             var user = new User();

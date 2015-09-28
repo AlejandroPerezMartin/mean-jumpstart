@@ -7,7 +7,7 @@ module.exports = function (passport) {
     router.get('/success', function (req, res) {
         res.send({
             state: 'success',
-            user: req.user ? req.user : null
+            user: req.username ? req.username : null
         });
     });
 

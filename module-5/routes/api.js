@@ -4,17 +4,17 @@ var mongoose = require('mongoose');
 var Post = mongoose.model('Post');
 
 function isAuthenticated(req, res, next) {
-    if (req.method === 'GET') {
+    if (req.method === "GET") {
         return next();
     }
 
-    if (!req.isAuthenticated()) {
-        // user not authenticated, redirect to login page
-        return res.redirect('/#login')
+    if (req.isAuthenticated()) {
+        // user authenticated, continue
+        return next();
     }
 
-    // user authenticated, continue
-    return next();
+    // user not authenticated, redirect to login page
+    return res.redirect('/#login');
 }
 
 //Register the authentication middleware
